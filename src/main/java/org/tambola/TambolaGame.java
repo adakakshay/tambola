@@ -13,17 +13,14 @@ public class TambolaGame {
     private final ClaimProcessor claimProcessor = new ClaimProcessor();
     private final List<Player> players;
     private final Scanner scanner = new Scanner(System.in);
-    private SecureRandomWrapper secureRandomWrapper;
+    private final SecureRandomWrapper secureRandomWrapper;
 
 
-    public TambolaGame(List<Player> players) {
+    public TambolaGame(List<Player> players, SecureRandomWrapper secureRandomWrapper) {
         this.players = players;
-    }
-
-    // Setter for SecureRandomWrapper only for testing purpose
-    public void setSecureRandomWrapper(SecureRandomWrapper secureRandomWrapper) {
         this.secureRandomWrapper = secureRandomWrapper;
     }
+
     public void startGame() {
         System.out.println("Choose announcement mode:");
         System.out.println("1. Random Announcements");

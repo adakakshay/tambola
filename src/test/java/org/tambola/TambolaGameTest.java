@@ -6,7 +6,6 @@ import static org.mockito.Mockito.when;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
 import org.tambola.enums.WinningType;
 import org.tambola.pattern.FullHouseWinningPattern;
 import org.tambola.pattern.TopRowWinningPattern;
@@ -112,8 +111,7 @@ class TambolaGameTest {
                     .thenReturn(2);
 
 
-            TambolaGame game = new TambolaGame(players);
-            game.setSecureRandomWrapper(mockSecureRandom);
+            TambolaGame game = new TambolaGame(players, mockSecureRandom);
 
 
             Thread gameThread = new Thread(game::randomAnnounceNumbers);
@@ -149,7 +147,7 @@ class TambolaGameTest {
                     {11, 12, 13, 14, 15}
             });
             List<Player> players = List.of(player1);
-            TambolaGame game = new TambolaGame(players);
+            TambolaGame game = new TambolaGame(players, new SecureRandomWrapper());
 
 
             game.inputAnnounceNumbers();
@@ -172,7 +170,7 @@ class TambolaGameTest {
         });
 
         List<Player> players = List.of(player1);
-        TambolaGame game = new TambolaGame(players);
+        TambolaGame game = new TambolaGame(players, new SecureRandomWrapper());
 
 
         GameState.getInstance().announceNumber(1);
@@ -198,7 +196,7 @@ class TambolaGameTest {
         });
 
         List<Player> players = List.of(player1);
-        TambolaGame game = new TambolaGame(players);
+        TambolaGame game = new TambolaGame(players, new SecureRandomWrapper());
 
 
         GameState.getInstance().announceNumber(1);

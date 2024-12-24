@@ -29,4 +29,9 @@ public class WinningPatternFactory {
         }
         return pattern;
     }
+
+    //For testing purpose
+    public static void setValidator(WinningType gameType, WinningPattern validator) {
+        PATTERN_MAP.put(gameType, validator);
+    }
 }
